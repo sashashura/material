@@ -21,8 +21,15 @@ on:
   schedule:
     - cron: '45 16 * * 2'
 
+permissions:
+  contents: read # to fetch code (actions/checkout)
+
 jobs:
   analyze:
+    permissions:
+      contents: read # to fetch code (actions/checkout)
+      security-events: write #  (github/codeql-action/autobuild)
+
     name: Analyze
     runs-on: ubuntu-latest
 
